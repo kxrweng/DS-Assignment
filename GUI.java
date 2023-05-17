@@ -9,6 +9,7 @@ public class GUI implements ActionListener {
     private static JPasswordField passwordText;
     private static JButton button;
     private static JLabel success;
+    private static JLabel failed;
     public static void main (String [] args){
         JPanel panel = new JPanel();
         JFrame frame = new JFrame();
@@ -39,9 +40,13 @@ public class GUI implements ActionListener {
         button.addActionListener(new GUI());
         panel.add(button);
 
-       success = new JLabel("");
+        success = new JLabel("");
         success.setBounds(10,110,300,25);
         panel.add(success);
+
+        failed = new JLabel("");
+        failed.setBounds(10,110,300,25);
+        panel.add(failed);
 
         frame.setVisible(true);
 
@@ -55,8 +60,10 @@ public class GUI implements ActionListener {
 
         if(user.equals("kxrweng") && password.equals("030303")){
             success.setText("Login successful!");
-
         }
+        else
+            failed.setText("Wrong password or username!");
+
 
     }
 }
